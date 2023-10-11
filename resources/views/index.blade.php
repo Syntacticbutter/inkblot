@@ -11,7 +11,7 @@
     }
 </style>
 <body>
-    <h1>Registered Books</h1>
+    <h1>Books</h1>
     <div>
         <table border="1">
             <tr>
