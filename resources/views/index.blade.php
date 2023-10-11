@@ -24,9 +24,9 @@
                 <th>Description</th>
                 <th colspan="2">Actions</th>
             </tr>
-            @foreach($books as $book)
+            <!-- @foreach($books as $book)
             <tr>
-                <!-- <td>{{$book->id}}</td> -->
+                <td>{{$book->id}}</td>
                 <td>{{$book->title}}</td>
                 <td>{{$book->edition}}</td>
                 <td>{{$book->author}}</td>
@@ -44,7 +44,50 @@
                     </form>
                 </td>
             </tr>
+            @endforeach -->
+
+            @foreach($books as $book)
+            <tr>
+                <form method="post" action="{{route('book.update', ['book' => $book])}}">
+                    @csrf
+                    @method('put')
+                    <td>
+                        <input value="{{$book->title}}" type="text" name="title" placeholder="{{$book->title}}" />
+                    </td>
+                    <td>
+                        <input value="{{$book->edition}}" min="1" type="number" name="edition" placeholder="{{$book->edition}}" />
+                    </td>
+                    <td>
+                        <input value="{{$book->author}}" type="text" name="author" placeholder="{{$book->author}}" />
+                    </td>
+                    <td>
+                        <input value="{{$book->year}}" min="0" type="number" name="year" placeholder="{{$book->year}}" />
+                    </td>
+                    <td>
+                        <input value="{{$book->publisher}}" type="text" name="publisher" placeholder="{{$book->publisher}}" />
+                    </td>
+                    <td>
+                        <input value="{{$book->description}}" type="text" name="description" placeholder="{{$book->description}}" />
+                    </td>
+                    <td>
+                        <input type="submit" value="Save Changes" />
+                    </td>   
+                </form>
+                <form method="post" action="{{route('book.destroy', ['book' => $book])}}">
+                    <td>
+                    @csrf
+                    @method('delete')
+                        <input type="submit" value="Remove">
+                    </td>
+                </form>
+            </tr>
             @endforeach
+            
+            <!-- all books are added by admin
+            all accounts are managed by admin
+            if signed in as admin show add, edit, remove book
+            elseif signed in as member show add trade request (has and want) -->
+
             <tr>
                 <form method="post" action="{{route('book.store')}}">
                     @csrf

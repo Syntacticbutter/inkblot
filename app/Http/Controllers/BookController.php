@@ -21,11 +21,11 @@ class BookController extends Controller
         // dd($request);
         $data = $request->validate([
             'title' => 'required',
+            'edition' => 'required',
             'author' => 'required',
             'year' => 'required|numeric',
             'publisher' => 'required',
-            'description' => 'nullable',
-            'edition' => 'nullable'
+            'description' => 'nullable'
         ]);
         
         $addedBook = Book::create($data);
