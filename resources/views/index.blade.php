@@ -86,7 +86,22 @@
             <!-- all books are added by admin
             all accounts are managed by admin
             if signed in as admin show add, edit, remove book
-            elseif signed in as member show add trade request (has and want) -->
+            elseif signed in as member show add trade request (has and want) 
+        
+            download composer installer then run it
+            git clone
+            git config --global user.email "you@example.com"
+            git config --global user.name "Your Name"
+            open terminal -> type php composer install
+            rename .env.example to .env
+            open .env and set database name from laravel to inkblot
+            open terminal -> type php artisan key:generate
+            run xampp as administrator
+            start apache and mysql
+            create new database inkblot in phpmyadmin
+            open terminal -> type php artisan migrate
+            open terminal -> type php artisan serve
+            -->
 
             <tr>
                 <form method="post" action="{{route('book.store')}}">
