@@ -11,11 +11,11 @@
     }
 </style>
 <body>
-    <h1>Books</h1>
+    <h1>Items</h1>
     <div>
         <table border="1">
             <tr>
-                <!-- <th>ID</th> -->
+                <th>ID</th>
                 <th>Title</th>
                 <th>Edition</th>
                 <th>Author</th>
