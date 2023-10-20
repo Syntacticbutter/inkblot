@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use LDAP\Result;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class BookController extends Controller
 {
@@ -33,9 +36,13 @@ class BookController extends Controller
         return redirect(route('book.index'))->with('success', 'Item added successfully');
     }
 
-    public function edit(Book $book) {
+    public function edit(Book $books) {
         // dd($book);
-        return view('edit', ['book' => $book]);
+        $books = DB::table('books')
+                ->where('books.title', 'qweq')
+                ->get();
+
+        return view('edit', ['books' => $books]);
     }
     
     public function update(Book $book, Request $request) {

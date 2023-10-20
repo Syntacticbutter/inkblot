@@ -9,13 +9,17 @@
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+    table, th, tr, td {
+        border: 1px solid grey;
+        border-collapse: collapse
+    }
 </style>
 <body>
     <h1>Items</h1>
     <div>
-        <table border="1">
+        <table>
             <tr>
-                <th>ID</th>
+                <!-- <th>ID</th> -->
                 <th>Title</th>
                 <th>Edition</th>
                 <th>Author</th>
@@ -24,9 +28,10 @@
                 <th>Description</th>
                 <th colspan="2">Actions</th>
             </tr>
-            <!-- @foreach($books as $book)
+            
+            @foreach($books as $book)
             <tr>
-                <td>{{$book->id}}</td>
+                <!-- <td>{{$book->id}}</td> -->
                 <td>{{$book->title}}</td>
                 <td>{{$book->edition}}</td>
                 <td>{{$book->author}}</td>
@@ -44,7 +49,7 @@
                     </form>
                 </td>
             </tr>
-            @endforeach -->
+            @endforeach
 
             @foreach($books as $book)
             <tr>
